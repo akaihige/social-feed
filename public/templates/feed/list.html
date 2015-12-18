@@ -1,0 +1,10 @@
+<div class="feed">
+    <div class="feed-item" ng-repeat="item in feed.posts | orderBy:'-created' ">
+        <div class="author">
+            <img ng-src="{{item.author.picture}}">
+            <span class="name">{{item.author.name}}</span>
+        </div>
+        <div class="date">{{item.createdFormatted}}</div>
+        <div class="body" ng-bind-html="item.body"></div>
+    </div>
+</div>

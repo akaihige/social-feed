@@ -1,0 +1,42 @@
+{
+  "name": "social-feed",
+  "version": "1.0.0",
+  "description": "Social Feed - a simple angular js app",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/akaihige/social-feed.git"
+  },
+  "author": "",
+  "bugs": {},
+  "homepage": "",
+  "scripts": {
+    "build-js": "browserify javascripts/app.js -o public/build/app.js --debug",
+    "build-sass": "node-sass sass/main.scss public/build/main.css",
+    "build-min-js": "browserify javascripts/app.js | uglifyjs -o public/build/app.js",
+    "build-min-sass": "node-sass sass/main.scss | cleancss -o public/build/main.css",
+    "watch-js": "nodemon -e js -w javascripts -x 'npm run build-js'",
+    "watch-sass": "nodemon -e scss -w sass -x 'npm run build-sass'",
+    "build": "npm run build-js & npm run build-sass",
+    "build-min": "npm run build-min-js & npm run build-min-sass",
+    "watch": "npm run watch-js & npm run watch-sass",
+    "start": "http-server -c-1 -p 3000",
+    "start-dev": "npm run build & npm run watch & npm run start",
+    "start-min": "npm run build-min & npm run start"
+  },
+  "dependencies": {
+    "angular": "^1.4.8",
+    "angular-moment": "^1.0.0-beta.3",
+    "angular-sanitize": "^1.4.8",
+    "angular-ui-router": "^0.2.15",
+    "moment": "^2.10.6"
+  },
+  "devDependencies": {
+    "browserify": "^12.0.1",
+    "browserify-shim": "^3.8.11",
+    "clean-css": "^3.4.8",
+    "node-sass": "^3.4.2",
+    "nodemon": "^1.8.1",
+    "uglifyjs": "^2.4.10"
+  }
+}

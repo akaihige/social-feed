@@ -1,0 +1,8 @@
+<div class="top-pane">
+    <form name="createPostForm">
+        <textarea ng-model="post.body" required></textarea>
+        <button class="btn-lg" ng-click="createPostForm.$valid && createPost();">POST!</button>
+    </form>
+</div>
+<div ui-view="mainPane" class="main-pane"></div>
+<div ui-view="rightPane" class="right-pane"></div>

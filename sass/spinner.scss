@@ -1,0 +1,47 @@
+@mixin spinner-el($selectorName,$index,$radius,$degreeIncrement,$percentIncrement,$numEls,$speed){
+
+    $degrees: $degreeIncrement * ($index - 1);
+    $opacity: $index * $percentIncrement;
+    $delay: $index * $percentIncrement * $speed;
+
+    .#{$selectorName} .spinner:nth-child(#{$index}) {
+        transform: rotate(#{$degrees}deg) translate(0, -#{$radius}px);
+        opacity: $opacity;
+        animation-delay: #{$delay}s;
+    }
+
+}
+
+@mixin spinner-els($selectorName,$numEls,$radius,$speed) {
+
+  $degreeIncrement: (360/$numEls);
+  $percentIncrement: (1/$numEls);
+
+  @for $i from 0 through $numEls {
+    @include spinner-el($selectorName,$i,$radius,$degreeIncrement,$percentIncrement,$numEls,$speed);
+  }
+}
+
+@mixin spinner($selectorName,$numEls: 12,$radius: 12,$elColor: #ffffff,$speed: 0.7,$circlesDiameter: 5){
+
+    .#{$selectorName} .spinner{
+         width: #{$circlesDiameter}px;
+         height: #{$circlesDiameter}px;
+         border-radius: 50%;
+         background: $elColor;
+         position: absolute;
+         opacity: 1;
+         animation: fade #{$speed}s linear infinite;
+    }
+
+    @include spinner-els($selectorName,$numEls,$radius,$speed);
+
+    @keyframes fade {
+         from {
+              opacity: 1;
+         }
+         to {
+              opacity: 0.1;
+         }
+    }
+}

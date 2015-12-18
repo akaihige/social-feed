@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app="socialFeedApp">
+    <head>
+        <title>Social Feed</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="/build/main.css" />
+    </head>
+    <body ng-controller="globalController" ng-class="{'loading': loading}">
+
+        <div class="site-wrapper">
+            <div class="container center-block">
+                <div class="main" ui-view></div>
+            </div>
+        </div>
+
+        <div class="main-mask">
+            <div spinner num-circles="12" class="blue-spinner loader"></div>
+        </div>
+
+        <script src="/build/app.js"></script>
+    </body>
+</html>

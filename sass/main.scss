@@ -1,0 +1,85 @@
+@import "spinner";
+
+.main {
+    position: relative;
+}
+
+.top-pane {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    padding: 20px;
+    background: #fff;
+
+    textarea {
+        width: calc(100% - 100px);
+        height: 60px;
+    }
+
+    button {
+        display: inline-block;
+        width: 85px;
+        height: 60px;
+        margin-left: 10px;
+        vertical-align: top;
+        text-align: center;
+    }
+}
+
+.main-pane {
+    position: fixed;
+    top: 100px;
+    bottom: 0;
+    left: 0;
+    width: 70%;
+    padding: 20px;
+    overflow: scroll;
+    background: #efefef;
+}
+
+.right-pane {
+    position: fixed;
+    top: 100px;
+    bottom: 0;
+    right: 0;
+    width: 30%;
+    padding: 5px;
+    overflow: scroll;
+    background: #cecece;
+}
+
+.feed {
+    .feed-item {
+        padding: 0 0 20px;
+        border-top: none;
+        border-bottom: 10px solid #ccc;
+
+        &:first-child {
+            border-top: 10px solid #ccc;
+        }
+
+        &:nth-child(even){
+            background: #fff;
+        }
+
+    }
+}
+
+.friends {
+    .friend {
+        padding: 5px;
+        border-top: none;
+        border-bottom: 1px solid #ccc;
+
+        &:first-child {
+            border-top: 1px solid #ccc;
+        }
+
+        &:nth-child(even){
+            background: #fff;
+        }
+
+    }
+}
